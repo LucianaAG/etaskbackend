@@ -1,0 +1,2 @@
+[tool.coverage.run]
+omit = ['*/test_*', '*/tests.py', '*/apps.py', '*/__init__.py', '*/urls.py', '*/routers.py', '*/admin.py', '*/manage.py', '*/migrations/*', '*/settings.py']
