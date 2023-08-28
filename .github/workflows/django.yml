@@ -34,4 +34,5 @@ jobs:
         export POSTGRESQL_HOST=$POSTGRESQL_HOST
         export POSTGRESQL_PORT=$POSTGRESQL_PORT
         export DEBUG=$DEBUG
+        
         python manage.py test
