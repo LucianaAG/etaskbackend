@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -27,12 +26,12 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        export SECRET_KEY=$SECRET_KEY
-        export POSTGRES_NAME=$POSTGRES_NAME
-        export POSTGRESQL_USER=$POSTGRESQL_USER
-        export POSTGRESQL_PASS=$POSTGRESQL_PASS
-        export POSTGRESQL_HOST=$POSTGRESQL_HOST
-        export POSTGRESQL_PORT=$POSTGRESQL_PORT
-        export DEBUG=$DEBUG
+        export SECRET_KEY=env.SECRET_KEY
+        export POSTGRES_NAME=vars.POSTGRES_NAME
+        export POSTGRESQL_USER=vars.POSTGRESQL_USER
+        export POSTGRESQL_PASS=vars.POSTGRESQL_PASS
+        export POSTGRESQL_HOST=vars.POSTGRESQL_HOST
+        export POSTGRESQL_PORT=vars.POSTGRESQL_PORT
+        export DEBUG=vars.DEBUG
         
         python manage.py test
