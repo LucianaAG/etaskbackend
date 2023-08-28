@@ -26,7 +26,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        export SECRET_KEY=${{ secret.SECRET_KEY }}
+        export SECRET_KEY=${{ secrets.SECRET_KEY }}
         export POSTGRES_NAME=${{ vars.POSTGRES_NAME }}
         export POSTGRESQL_USER=${{ vars.POSTGRESQL_USER }}
         export POSTGRESQL_PASS=${{ vars.POSTGRESQL_PASS }}
