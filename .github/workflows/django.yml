@@ -27,12 +27,11 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        export SECRET_KEY=$SECRET_KEY
-        export POSTGRES_NAME=$POSTGRES_NAME
-        export POSTGRESQL_USER=$POSTGRESQL_USER
-        export POSTGRESQL_PASS=$POSTGRESQL_PASS
-        export POSTGRESQL_HOST=$POSTGRESQL_HOST
-        export POSTGRESQL_PORT=$POSTGRESQL_PORT
-        export DEBUG=$DEBUG
-        
+        export SECRET_KEY=$SECRET_KEY:$PATH
+        export POSTGRES_NAME=$POSTGRES_NAME:$PATH
+        export POSTGRESQL_USER=$POSTGRESQL_USER:$PATH
+        export POSTGRESQL_PASS=$POSTGRESQL_PASS:$PATH
+        export POSTGRESQL_HOST=$POSTGRESQL_HOST:$PATH
+        export POSTGRESQL_PORT=$POSTGRESQL_PORT:$PATH
+        export DEBUG=$DEBUG:$PATH
         python manage.py test
