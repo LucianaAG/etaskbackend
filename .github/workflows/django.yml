@@ -33,5 +33,6 @@ jobs:
         export POSTGRESQL_HOST=${{ vars.POSTGRESQL_HOST }}
         export POSTGRESQL_PORT=${{ vars.POSTGRESQL_PORT }}
         export DEBUG=${{ vars.DEBUG }}
+        export CONTEXT=${{ vars.CONTEXT }}
         
         python manage.py test
