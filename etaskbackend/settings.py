@@ -97,14 +97,23 @@ WSGI_APPLICATION = 'etaskbackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+if os.environ['CONTEXT'] == 'production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['POSTGRES_NAME'],
+            'USER': os.environ['POSTGRESQL_USER'],
+            'PASSWORD': os.environ['POSTGRESQL_PASS'],
+            'HOST': os.environ['POSTGRESQL_HOST'],
+            'PORT': os.environ['POSTGRESQL_PORT'],
+        }
+    }
+
+elif os.environ['CONTEXT'] == 'testing':
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_NAME'],
-        'USER': os.environ['POSTGRESQL_USER'],
-        'PASSWORD': os.environ['POSTGRESQL_PASS'],
-        'HOST': os.environ['POSTGRESQL_HOST'],
-        'PORT': os.environ['POSTGRESQL_PORT'],
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
